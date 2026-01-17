@@ -1,11 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { 
-  Activity, 
-  Zap, 
-  Send, 
-  // ... 這裡保留你原本所有的圖示名稱 ...
-  HeartHandshake 
-} from 'lucide-react/dist/esm/lucide-react';
+  Activity, Zap, Send, Battery, Wifi, Cpu, Navigation, Crosshair, Aperture, 
+  Wind, Trophy, Play, RotateCcw, ChevronLeft, ChevronRight, MapPin, Star, 
+  Utensils, Coffee, ThumbsUp, Award, Scan, FlaskConical, FileText, Flame, 
+  BookOpen, Database, Satellite, Eye, Moon, Rocket, Calendar, Gauge, 
+  MessageCircle, Lock, Unlock, CheckCircle, Terminal, Wrench, CircuitBoard, 
+  GraduationCap, Users, Timer, Brain, Search, Disc, School, Briefcase, 
+  GitBranch, Layers, Code, Lightbulb, PenTool, UtensilsCrossed, History, HeartHandshake 
+} from 'lucide-react'; 
+// 如果上面這行在 Vercel 還是白屏，請嘗試改為：
+// from 'lucide-react/dist/esm/lucide-react';
 
 // --- SVG Icons Components ---
 
