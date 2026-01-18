@@ -966,7 +966,7 @@ const DroneView = () => {
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[length:50px_50px] pointer-events-none"></div>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_30%,rgba(0,0,0,0.6)_100%)] pointer-events-none"></div>
 
-      <div className="absolute inset-0 p-4 flex flex-col justify-between z-10 pointer-events-none">
+      <div className="absolute inset-0 p-2 md:p-4 flex flex-col justify-between z-10 pointer-events-none">
                 <div className="flex justify-between items-center text-white font-mono text-xs drop-shadow-md bg-black/40 p-2 rounded backdrop-blur-md border border-white/10 pointer-events-auto">
                     <div className="flex-1 flex items-center justify-center gap-4">
                          <span className="px-2 py-1 rounded text-[10px] text-center bg-gradient-to-r from-blue-500 via-green-500 to-yellow-400 text-white shadow-[0_0_10px_rgba(255,255,255,0.2)]">Google Travel Map</span>
@@ -984,7 +984,7 @@ const DroneView = () => {
 
         {/* Crosshair Center (Absolute Positioned for True Center) */}
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-none">
-            <Crosshair className="text-white/80 w-56 h-56 drop-shadow-md" strokeWidth={0.5} />
+            <Crosshair className="text-white/80 w-32 md:w-56 h-32 md:h-56 drop-shadow-md" strokeWidth={0.5} />
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-red-500 rounded-full animate-pulse shadow-[0_0_10px_red]"></div>
             <div className="absolute top-[140px] left-1/2 transform -translate-x-1/2 text-center w-56">
                 <div className="text-2xl font-bold text-white font-mono tracking-wider drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
@@ -1003,11 +1003,11 @@ const DroneView = () => {
         </div>
 
         {/* Navigation Arrows (Flanking the center crosshair) */}
-        <button onClick={() => changeLoc('prev')} className="absolute top-1/2 left-4 -translate-y-1/2 p-5 hover:bg-black/40 rounded-full transition-all opacity-50 hover:opacity-100 hover:scale-110 z-30 pointer-events-auto">
-            <ChevronLeft className="w-12 h-12 text-white drop-shadow-[0_0_10px_rgba(0,0,0,1)]" />
+        <button onClick={() => changeLoc('prev')} className="absolute top-1/2 left-2 md:left-4 -translate-y-1/2 p-3 md:p-5 hover:bg-black/40 rounded-full transition-all opacity-50 hover:opacity-100 hover:scale-110 z-30 pointer-events-auto">
+            <ChevronLeft className="w-8 md:w-12 h-8 md:h-12 text-white drop-shadow-[0_0_10px_rgba(0,0,0,1)]" />
         </button>
 
-        <button onClick={() => changeLoc('next')} className="absolute top-1/2 right-4 -translate-y-1/2 p-5 hover:bg-black/40 rounded-full transition-all opacity-50 hover:opacity-100 hover:scale-110 z-30 pointer-events-auto">
+        <button onClick={() => changeLoc('next')} className="absolute top-1/2 right-2 md:right-4 -translate-y-1/2 p-3 md:p-5 hover:bg-black/40 rounded-full transition-all opacity-50 hover:opacity-100 hover:scale-110 z-30 pointer-events-auto">
             <ChevronRight className="w-12 h-12 text-white drop-shadow-[0_0_10px_rgba(0,0,0,1)]" />
         </button>
 
@@ -1058,7 +1058,7 @@ const StatsDashboard = () => {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 h-full overflow-y-auto relative min-w-0 auto-rows-min">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4 h-full overflow-y-auto relative min-w-0 auto-rows-min px-1 md:px-0">
       {/* Scanning Effect Overlay */}
       {scanActive && (
           <div className="absolute inset-0 z-50 pointer-events-none">
@@ -1333,7 +1333,7 @@ const HospitalityView = () => {
     };
 
     return (
-        <div className="h-full flex flex-col p-4 bg-gradient-to-br from-gray-900 to-black rounded-lg overflow-y-auto custom-scrollbar border border-yellow-500/20">
+        <div className="h-full flex flex-col p-2 md:p-4 bg-gradient-to-br from-gray-900 to-black rounded-lg overflow-y-auto custom-scrollbar border border-yellow-500/20">
             <div className="text-center mb-4 relative">
                 {/* Background Glow */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-yellow-500/10 blur-3xl rounded-full"></div>
@@ -1705,12 +1705,12 @@ const App = () => {
       </nav>
 
       {/* Main Content Area */}
-    <main className="flex-1 p-4 md:p-6 h-[calc(100vh-80px)] md:h-screen overflow-hidden flex flex-col min-w-0">
+    <main className="flex-1 p-2 md:p-6 h-[calc(100vh-80px)] md:h-screen overflow-hidden flex flex-col min-w-0">
         {/* Header */}
-        <header className="flex justify-between items-center mb-6">
-            <div>
-                <h1 className="text-2xl font-bold font-mono tracking-tighter">ZHIHAO_OS <span className="text-xs text-green-500 bg-green-500/10 px-2 py-0.5 rounded">v6.3</span></h1>
-                <p className="text-xs text-gray-500 uppercase tracking-widest">System Nominal</p>
+        <header className="flex justify-between items-center mb-2 md:mb-6 shrink-0">
+            <div className="min-w-0">
+                <h1 className="text-base md:text-2xl font-bold font-mono tracking-tighter truncate">ZHIHAO_OS <span className="text-[9px] md:text-xs text-green-500 bg-green-500/10 px-1 md:px-2 py-0.5 rounded">v6.3</span></h1>
+                <p className="hidden md:block text-xs text-gray-500 uppercase tracking-widest">System Nominal</p>
             </div>
             <div className="flex items-center gap-4">
                 <div className="hidden md:flex flex-col items-end text-xs font-mono text-gray-400">
@@ -1724,10 +1724,10 @@ const App = () => {
         </header>
 
         {/* Dynamic Content */}
-        <div className="flex-1 relative bg-gray-900/50 rounded-2xl border border-gray-800 p-1 overflow-hidden shadow-inner">
+        <div className="flex-1 relative bg-gray-900/50 rounded-lg md:rounded-2xl border border-gray-800 overflow-hidden shadow-inner min-h-0">
             <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] z-0 pointer-events-none bg-[length:100%_2px,3px_100%]"></div>
             
-            <div className="relative z-10 h-full p-2 md:p-4">
+            <div className="relative z-10 h-full overflow-y-auto p-1 md:p-3">
                 {activeTab === 'dashboard' && <StatsDashboard />}
                 {activeTab === 'race' && <RacingGame />}
                 {activeTab === 'drone' && <DroneView />}
