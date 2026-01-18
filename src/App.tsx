@@ -966,27 +966,27 @@ const DroneView = () => {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_30%,rgba(0,0,0,0.6)_100%)] pointer-events-none"></div>
 
       <div className="absolute inset-0 p-4 flex flex-col justify-between z-10 pointer-events-none">
-        <div className="flex justify-between items-center text-white font-mono text-xs drop-shadow-md bg-black/40 p-2 rounded backdrop-blur-md border border-white/10 pointer-events-auto">
-          <div className="flex gap-4">
-                 <span className="px-2 py-1 rounded text-[10px] bg-gradient-to-r from-blue-500 via-green-500 to-yellow-400 text-white shadow-[0_0_10px_rgba(255,255,255,0.2)]">Google Travel Map</span>
-             <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span> GPS: LOCKED</span>
-             <span className="hidden md:inline">MODE: {viewMode.toUpperCase()}</span>
-             <span className="text-yellow-400">SAT: 24</span>
-          </div>
+                <div className="flex justify-between items-center text-white font-mono text-xs drop-shadow-md bg-black/40 p-2 rounded backdrop-blur-md border border-white/10 pointer-events-auto">
+                    <div className="flex-1 flex items-center justify-center gap-4">
+                         <span className="px-2 py-1 rounded text-[10px] text-center bg-gradient-to-r from-blue-500 via-green-500 to-yellow-400 text-white shadow-[0_0_10px_rgba(255,255,255,0.2)]">Google Travel Map</span>
+                         <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span> GPS: LOCKED</span>
+                         <span className="hidden md:inline">MODE: {viewMode.toUpperCase()}</span>
+                         <span className="text-yellow-400">SAT: 24</span>
+                    </div>
           
-          <div className="flex gap-2">
+                    <div className="flex gap-2 flex-none">
              <button onClick={() => setViewMode('rgb')} className={`p-1 rounded ${viewMode === 'rgb' ? 'bg-cyan-600 text-white' : 'bg-gray-700 text-gray-400'}`} title="RGB Camera"><Eye size={14}/></button>
              <button onClick={() => setViewMode('thermal')} className={`p-1 rounded ${viewMode === 'thermal' ? 'bg-red-600 text-white' : 'bg-gray-700 text-gray-400'}`} title="Thermal Mode"><Flame size={14}/></button>
              <button onClick={() => setViewMode('night')} className={`p-1 rounded ${viewMode === 'night' ? 'bg-green-600 text-white' : 'bg-gray-700 text-gray-400'}`} title="Night Vision"><Moon size={14}/></button>
           </div>
         </div>
 
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full flex items-center justify-center pointer-events-auto">
-           <button onClick={() => changeLoc('prev')} className="p-6 hover:bg-black/40 rounded-full transition-all group-hover:opacity-100 opacity-50 hover:scale-110">
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-[520px] mx-auto flex items-center justify-between gap-6 pointer-events-auto">
+              <button onClick={() => changeLoc('prev')} className="p-5 hover:bg-black/40 rounded-full transition-all group-hover:opacity-100 opacity-50 hover:scale-110">
               <ChevronLeft className="w-12 h-12 text-white drop-shadow-[0_0_10px_rgba(0,0,0,1)]" />
            </button>
 
-           <div className="relative mx-12">
+              <div className="relative flex-1 flex flex-col items-center">
                <Crosshair className="text-white/80 w-56 h-56 drop-shadow-md" strokeWidth={0.5} />
                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-red-500 rounded-full animate-pulse shadow-[0_0_10px_red]"></div>
                <div className="absolute top-[70%] left-1/2 transform -translate-x-1/2 text-center w-full">
@@ -1005,7 +1005,7 @@ const DroneView = () => {
                </div>
            </div>
 
-           <button onClick={() => changeLoc('next')} className="p-6 hover:bg-black/40 rounded-full transition-all group-hover:opacity-100 opacity-50 hover:scale-110">
+              <button onClick={() => changeLoc('next')} className="p-5 hover:bg-black/40 rounded-full transition-all group-hover:opacity-100 opacity-50 hover:scale-110">
               <ChevronRight className="w-12 h-12 text-white drop-shadow-[0_0_10px_rgba(0,0,0,1)]" />
            </button>
         </div>
