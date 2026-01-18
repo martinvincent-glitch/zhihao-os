@@ -1003,11 +1003,11 @@ const DroneView = () => {
         </div>
 
         {/* Navigation Arrows (Flanking the center crosshair) */}
-        <button onClick={() => changeLoc('prev')} className="absolute top-1/2 left-8 transform -translate-y-1/2 p-5 hover:bg-black/40 rounded-full transition-all opacity-50 hover:opacity-100 hover:scale-110 z-20 pointer-events-auto">
+        <button onClick={() => changeLoc('prev')} className="absolute top-1/2 left-4 -translate-y-1/2 p-5 hover:bg-black/40 rounded-full transition-all opacity-50 hover:opacity-100 hover:scale-110 z-30 pointer-events-auto">
             <ChevronLeft className="w-12 h-12 text-white drop-shadow-[0_0_10px_rgba(0,0,0,1)]" />
         </button>
 
-        <button onClick={() => changeLoc('next')} className="absolute top-1/2 right-8 transform -translate-y-1/2 p-5 hover:bg-black/40 rounded-full transition-all opacity-50 hover:opacity-100 hover:scale-110 z-20 pointer-events-auto">
+        <button onClick={() => changeLoc('next')} className="absolute top-1/2 right-4 -translate-y-1/2 p-5 hover:bg-black/40 rounded-full transition-all opacity-50 hover:opacity-100 hover:scale-110 z-30 pointer-events-auto">
             <ChevronRight className="w-12 h-12 text-white drop-shadow-[0_0_10px_rgba(0,0,0,1)]" />
         </button>
 
@@ -1367,6 +1367,30 @@ const HospitalityView = () => {
                 <div className="flex justify-between items-center text-[10px] font-mono text-gray-500 bg-black/20 p-2 rounded">
                     <span>LINK_ESTABLISHED: 2018</span>
                     <span>STATUS: ACTIVE_SYNC</span>
+                </div>
+            </div>
+
+            {/* NEW: Movie Memory Section */}
+            <div className="bg-black/40 p-4 rounded-xl border-l-4 border-pink-500 mb-6">
+                <h3 className="text-pink-400 font-bold mb-3 flex items-center gap-2">
+                    <Clapperboard size={16} /> 電影回憶 (CINEMA MEMORIES)
+                </h3>
+                <div className="space-y-2 text-xs font-mono text-gray-300">
+                    <div className="flex items-center justify-between bg-gray-900/60 p-2 rounded border border-pink-500/20">
+                        <span>🎬 Top Gun: Maverick <span className="text-gray-500">(2022)</span></span>
+                        <span className="text-pink-400">極速追夢</span>
+                    </div>
+                    <div className="flex items-center justify-between bg-gray-900/60 p-2 rounded border border-purple-500/20">
+                        <span>🏎️ Gran Turismo <span className="text-gray-500">(2023)</span></span>
+                        <span className="text-purple-400">賽道精神</span>
+                    </div>
+                    <div className="flex items-center justify-between bg-gray-900/60 p-2 rounded border border-cyan-500/20">
+                        <span>🚀 The Martian <span className="text-gray-500">(2015)</span></span>
+                        <span className="text-cyan-400">堅毅不屈</span>
+                    </div>
+                </div>
+                <div className="mt-3 text-[10px] text-gray-500 italic text-center">
+                    每一部電影都是我們共同的回憶，感謝你陪我欣賞每個精彩時刻。
                 </div>
             </div>
 
