@@ -27,6 +27,7 @@ import {
   Flame,
   BookOpen,
   Database,
+    Clapperboard,
   Satellite,
   Eye,
   Moon,
@@ -1262,6 +1263,40 @@ const StatsDashboard = () => {
                          </div>
                      </div>
                  </div>
+             </div>
+         </div>
+      </div>
+
+      {/* 4. Movie Night / Cinema Mode */}
+      <div className="bg-black/60 rounded-2xl p-6 border border-gray-700 col-span-1 md:col-span-2 shadow-[0_0_20px_rgba(0,0,0,0.4)]">
+         <div className="flex items-center justify-between mb-4">
+             <div className="flex items-center gap-2 text-pink-400 font-bold">
+                 <Clapperboard size={20} /> 電影時刻 (Cinema Mode)
+             </div>
+             <span className="text-[10px] font-mono text-gray-400">IMAX / Dolby Vision</span>
+         </div>
+         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs font-mono">
+             <div className="bg-gray-900/60 rounded-lg p-3 border border-gray-700">
+                <div className="text-gray-400 mb-1">片單 (Watchlist)</div>
+                <div className="text-white">Top Gun: Maverick</div>
+                <div className="text-white">Gran Turismo</div>
+                <div className="text-white">The Martian</div>
+             </div>
+             <div className="bg-gray-900/60 rounded-lg p-3 border border-gray-700">
+                <div className="text-gray-400 mb-2">模式 (Mode)</div>
+                <div className="flex items-center gap-2 text-green-400">
+                    <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span> RTX Film Grain Off
+                </div>
+                <div className="flex items-center gap-2 text-cyan-400 mt-1">
+                    <span className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></span> Atmos Spatial Audio
+                </div>
+             </div>
+             <div className="bg-gray-900/60 rounded-lg p-3 border border-gray-700">
+                <div className="text-gray-400 mb-2">進度 (Now Playing)</div>
+                <div className="text-white font-bold mb-1">Movie Night Loading...</div>
+                <div className="w-full bg-gray-800 h-2 rounded-full overflow-hidden">
+                    <div className="h-full bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 w-[65%] animate-pulse"></div>
+                </div>
              </div>
          </div>
       </div>
