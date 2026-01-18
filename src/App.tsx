@@ -1058,7 +1058,7 @@ const StatsDashboard = () => {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 h-full overflow-y-auto relative">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 h-full overflow-y-auto relative min-w-0 auto-rows-min">
       {/* Scanning Effect Overlay */}
       {scanActive && (
           <div className="absolute inset-0 z-50 pointer-events-none">
@@ -1268,14 +1268,14 @@ const StatsDashboard = () => {
       </div>
 
       {/* 4. Movie Night / Cinema Mode */}
-      <div className="bg-black/60 rounded-2xl p-6 border border-gray-700 col-span-1 md:col-span-2 shadow-[0_0_20px_rgba(0,0,0,0.4)]">
+    <div className="bg-black/60 rounded-2xl p-6 border border-gray-700 col-span-1 md:col-span-2 shadow-[0_0_20px_rgba(0,0,0,0.4)] min-w-0">
          <div className="flex items-center justify-between mb-4">
              <div className="flex items-center gap-2 text-pink-400 font-bold">
                  <Clapperboard size={20} /> 電影時刻 (Cinema Mode)
              </div>
              <span className="text-[10px] font-mono text-gray-400">IMAX / Dolby Vision</span>
          </div>
-         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs font-mono">
+         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs font-mono min-w-0">
              <div className="bg-gray-900/60 rounded-lg p-3 border border-gray-700">
                 <div className="text-gray-400 mb-1">片單 (Watchlist)</div>
                 <div className="text-white">Top Gun: Maverick</div>
@@ -1681,7 +1681,7 @@ const App = () => {
       </nav>
 
       {/* Main Content Area */}
-      <main className="flex-1 p-4 md:p-6 h-[calc(100vh-80px)] md:h-screen overflow-hidden flex flex-col">
+    <main className="flex-1 p-4 md:p-6 h-[calc(100vh-80px)] md:h-screen overflow-hidden flex flex-col min-w-0">
         {/* Header */}
         <header className="flex justify-between items-center mb-6">
             <div>
