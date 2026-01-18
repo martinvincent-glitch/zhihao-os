@@ -982,34 +982,34 @@ const DroneView = () => {
           </div>
         </div>
 
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full flex items-center justify-center gap-10 pointer-events-auto">
-              <button onClick={() => changeLoc('prev')} className="p-5 hover:bg-black/40 rounded-full transition-all group-hover:opacity-100 opacity-50 hover:scale-110">
-              <ChevronLeft className="w-12 h-12 text-white drop-shadow-[0_0_10px_rgba(0,0,0,1)]" />
-           </button>
-
-              <div className="relative flex-1 flex flex-col items-center">
-               <Crosshair className="text-white/80 w-56 h-56 drop-shadow-md" strokeWidth={0.5} />
-               <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-red-500 rounded-full animate-pulse shadow-[0_0_10px_red]"></div>
-               <div className="absolute top-[70%] left-1/2 transform -translate-x-1/2 text-center w-full">
-                   <div className="text-2xl font-bold text-white font-mono tracking-wider drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-                       {currentLoc.name}
-                   </div>
-                   <div className="flex justify-center gap-2 mt-1">
-                       {currentLoc.type === 'uni' && (
-                           <span className="text-yellow-400 font-mono text-[10px] bg-yellow-900/50 px-2 rounded flex items-center gap-1 border border-yellow-500/50">
-                               <GraduationCap size={10} /> 大學回憶
-                           </span>
-                       )}
-                       <span className="text-cyan-300 font-mono text-[10px] bg-black/50 px-1 rounded">LAT: {currentLoc.lat}</span>
-                       <span className="text-cyan-300 font-mono text-[10px] bg-black/50 px-1 rounded">LON: {currentLoc.lon}</span>
-                   </div>
-               </div>
-           </div>
-
-              <button onClick={() => changeLoc('next')} className="p-5 hover:bg-black/40 rounded-full transition-all group-hover:opacity-100 opacity-50 hover:scale-110">
-              <ChevronRight className="w-12 h-12 text-white drop-shadow-[0_0_10px_rgba(0,0,0,1)]" />
-           </button>
+        {/* Crosshair Center (Absolute Positioned for True Center) */}
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-none">
+            <Crosshair className="text-white/80 w-56 h-56 drop-shadow-md" strokeWidth={0.5} />
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-red-500 rounded-full animate-pulse shadow-[0_0_10px_red]"></div>
+            <div className="absolute top-[140px] left-1/2 transform -translate-x-1/2 text-center w-56">
+                <div className="text-2xl font-bold text-white font-mono tracking-wider drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                    {currentLoc.name}
+                </div>
+                <div className="flex justify-center gap-2 mt-1 flex-wrap">
+                    {currentLoc.type === 'uni' && (
+                        <span className="text-yellow-400 font-mono text-[10px] bg-yellow-900/50 px-2 rounded flex items-center gap-1 border border-yellow-500/50">
+                            <GraduationCap size={10} /> 大學回憶
+                        </span>
+                    )}
+                    <span className="text-cyan-300 font-mono text-[10px] bg-black/50 px-1 rounded">LAT: {currentLoc.lat}</span>
+                    <span className="text-cyan-300 font-mono text-[10px] bg-black/50 px-1 rounded">LON: {currentLoc.lon}</span>
+                </div>
+            </div>
         </div>
+
+        {/* Navigation Arrows (Flanking the center crosshair) */}
+        <button onClick={() => changeLoc('prev')} className="absolute top-1/2 left-8 transform -translate-y-1/2 p-5 hover:bg-black/40 rounded-full transition-all opacity-50 hover:opacity-100 hover:scale-110 z-20 pointer-events-auto">
+            <ChevronLeft className="w-12 h-12 text-white drop-shadow-[0_0_10px_rgba(0,0,0,1)]" />
+        </button>
+
+        <button onClick={() => changeLoc('next')} className="absolute top-1/2 right-8 transform -translate-y-1/2 p-5 hover:bg-black/40 rounded-full transition-all opacity-50 hover:opacity-100 hover:scale-110 z-20 pointer-events-auto">
+            <ChevronRight className="w-12 h-12 text-white drop-shadow-[0_0_10px_rgba(0,0,0,1)]" />
+        </button>
 
         <div className="flex justify-between items-end text-white font-mono pointer-events-auto">
            <div className="bg-black/60 p-3 rounded backdrop-blur-md border border-gray-700 min-w-[200px]">
