@@ -981,7 +981,7 @@ const DroneView = () => {
           </div>
         </div>
 
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-[520px] mx-auto flex items-center justify-between gap-6 pointer-events-auto">
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full flex items-center justify-center gap-10 pointer-events-auto">
               <button onClick={() => changeLoc('prev')} className="p-5 hover:bg-black/40 rounded-full transition-all group-hover:opacity-100 opacity-50 hover:scale-110">
               <ChevronLeft className="w-12 h-12 text-white drop-shadow-[0_0_10px_rgba(0,0,0,1)]" />
            </button>
