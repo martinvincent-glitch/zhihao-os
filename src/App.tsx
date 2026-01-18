@@ -118,7 +118,7 @@ const BootSequence = ({ onComplete }: { onComplete: () => void }) => {
     texts.forEach((t, i) => setTimeout(() => setLines(p => [...p, t]), i * 600));
     setTimeout(onComplete, 3500);
   }, []);
-  return <div className="h-screen w-screen bg-black text-green-500 p-12 font-mono flex flex-col justify-end overflow-hidden">{lines.map((l, i) => <div key={i} className="animate-pulse mb-1">> {l}</div>)}<div className="w-4 h-6 bg-green-500 animate-ping mt-2"></div></div>;
+  return <div className="h-screen w-screen bg-black text-green-500 p-12 font-mono flex flex-col justify-end overflow-hidden">{lines.map((l, i) => <div key={i} className="animate-pulse mb-1">{">"} {l}</div>)}<div className="w-4 h-6 bg-green-500 animate-ping mt-2"></div></div>;
 };
 
 // --- 3. Racing Game ---
