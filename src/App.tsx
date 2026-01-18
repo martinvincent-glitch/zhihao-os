@@ -967,15 +967,19 @@ const DroneView = () => {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_30%,rgba(0,0,0,0.6)_100%)] pointer-events-none"></div>
 
       <div className="absolute inset-0 p-2 md:p-4 flex flex-col justify-between z-10 pointer-events-none">
-                <div className="flex justify-between items-center text-white font-mono text-xs drop-shadow-md bg-black/40 p-2 rounded backdrop-blur-md border border-white/10 pointer-events-auto">
-                    <div className="flex-1 flex items-center justify-center gap-4">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-center text-white font-mono text-[9px] md:text-xs drop-shadow-md bg-black/40 p-1 md:p-2 rounded backdrop-blur-md border border-white/10 pointer-events-auto gap-1 md:gap-0">
+                    <div className="hidden md:flex flex-1 flex items-center justify-center gap-4">
                          <span className="px-2 py-1 rounded text-[10px] text-center bg-gradient-to-r from-blue-500 via-green-500 to-yellow-400 text-white shadow-[0_0_10px_rgba(255,255,255,0.2)]">Google Travel Map</span>
                          <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span> GPS: LOCKED</span>
                          <span className="hidden md:inline">MODE: {viewMode.toUpperCase()}</span>
                          <span className="text-yellow-400">SAT: 24</span>
                     </div>
+                    <div className="md:hidden flex-1 flex items-center gap-1 flex-wrap">
+                         <span className="px-1.5 py-0.5 rounded text-[8px] bg-gradient-to-r from-blue-500 via-green-500 to-yellow-400 text-white">Map</span>
+                         <span className="flex items-center gap-0.5"><span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span> GPS</span>
+                    </div>
           
-                    <div className="flex gap-2 flex-none">
+                    <div className="flex gap-1 flex-none">
              <button onClick={() => setViewMode('rgb')} className={`p-1 rounded ${viewMode === 'rgb' ? 'bg-cyan-600 text-white' : 'bg-gray-700 text-gray-400'}`} title="RGB Camera"><Eye size={14}/></button>
              <button onClick={() => setViewMode('thermal')} className={`p-1 rounded ${viewMode === 'thermal' ? 'bg-red-600 text-white' : 'bg-gray-700 text-gray-400'}`} title="Thermal Mode"><Flame size={14}/></button>
              <button onClick={() => setViewMode('night')} className={`p-1 rounded ${viewMode === 'night' ? 'bg-green-600 text-white' : 'bg-gray-700 text-gray-400'}`} title="Night Vision"><Moon size={14}/></button>
@@ -986,11 +990,11 @@ const DroneView = () => {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-none">
             <Crosshair className="text-white/80 w-32 md:w-56 h-32 md:h-56 drop-shadow-md" strokeWidth={0.5} />
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-red-500 rounded-full animate-pulse shadow-[0_0_10px_red]"></div>
-            <div className="absolute top-[140px] left-1/2 transform -translate-x-1/2 text-center w-56">
-                <div className="text-2xl font-bold text-white font-mono tracking-wider drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+            <div className="absolute top-[140px] left-1/2 transform -translate-x-1/2 text-center w-32 md:w-56">
+                <div className="text-base md:text-2xl font-bold text-white font-mono tracking-wider drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
                     {currentLoc.name}
                 </div>
-                <div className="flex justify-center gap-2 mt-1 flex-wrap">
+                <div className="flex justify-center gap-1 mt-0.5 md:mt-1 flex-wrap text-[8px] md:text-[10px]">
                     {currentLoc.type === 'uni' && (
                         <span className="text-yellow-400 font-mono text-[10px] bg-yellow-900/50 px-2 rounded flex items-center gap-1 border border-yellow-500/50">
                             <GraduationCap size={10} /> 大學回憶
@@ -1008,36 +1012,41 @@ const DroneView = () => {
         </button>
 
         <button onClick={() => changeLoc('next')} className="absolute top-1/2 right-2 md:right-4 -translate-y-1/2 p-3 md:p-5 hover:bg-black/40 rounded-full transition-all opacity-50 hover:opacity-100 hover:scale-110 z-30 pointer-events-auto">
-            <ChevronRight className="w-12 h-12 text-white drop-shadow-[0_0_10px_rgba(0,0,0,1)]" />
+            <ChevronRight className="w-8 md:w-12 h-8 md:h-12 text-white drop-shadow-[0_0_10px_rgba(0,0,0,1)]" />
         </button>
 
-        <div className="flex justify-between items-end text-white font-mono pointer-events-auto">
-           <div className="bg-black/60 p-3 rounded backdrop-blur-md border border-gray-700 min-w-[200px]">
+        <div className="flex justify-between items-end text-white font-mono pointer-events-auto gap-1 md:gap-3 text-[10px] md:text-sm">
+           <div className="hidden md:block bg-black/60 p-3 rounded backdrop-blur-md border border-gray-700 min-w-[200px]">
              <div className="flex items-center gap-2 mb-1">
                  <Scan size={14} className="text-cyan-400"/>
                  <span className="text-xs text-gray-400">TARGET INTEL</span>
              </div>
              <div className="text-sm font-bold text-yellow-400 typing-effect">{currentLoc.note}</div>
            </div>
+           
+           <div className="md:hidden bg-black/60 p-1.5 rounded backdrop-blur-md border border-gray-700 flex-1 min-w-0">
+             <div className="text-[8px] text-gray-400 truncate">TARGET</div>
+             <div className="text-xs font-bold text-yellow-400 line-clamp-2">{currentLoc.note}</div>
+           </div>
 
            <button 
              onClick={() => setIsRecording(!isRecording)}
-             className={`w-16 h-16 rounded-full border-4 border-white flex items-center justify-center transition-all transform hover:scale-105 active:scale-95 ${isRecording ? 'bg-red-500/20' : 'bg-transparent'}`}
+             className={`w-12 md:w-16 h-12 md:h-16 rounded-full border-3 md:border-4 border-white flex items-center justify-center transition-all transform hover:scale-105 active:scale-95 flex-shrink-0 ${isRecording ? 'bg-red-500/20' : 'bg-transparent'}`}
            >
-             <div className={`rounded-full transition-all duration-300 ${isRecording ? 'w-6 h-6 bg-red-600 rounded-sm' : 'w-12 h-12 bg-red-500'}`}></div>
+             <div className={`rounded-full transition-all duration-300 ${isRecording ? 'w-4 md:w-6 h-4 md:h-6 bg-red-600 rounded-sm' : 'w-8 md:w-12 h-8 md:h-12 bg-red-500'}`}></div>
            </button>
 
-           <div className="bg-black/60 p-3 rounded backdrop-blur-md border border-gray-700 text-right">
-              <div className="text-xs text-gray-400 flex items-center justify-end gap-1">
-                  ZOOM / ALTITUDE <Navigation size={10} className="transform -rotate-45"/>
+           <div className="bg-black/60 p-1.5 md:p-3 rounded backdrop-blur-md border border-gray-700 text-right flex flex-col gap-0.5 md:gap-1">
+              <div className="text-[8px] md:text-xs text-gray-400 flex items-center justify-end gap-0.5 md:gap-1">
+                  <span className="hidden md:inline">ZOOM / ALTITUDE</span> <span className="md:hidden">ALT</span> <Navigation size={8} className="md:w-[10px] md:h-[10px] transform -rotate-45"/>
               </div>
-              <div className="text-2xl font-bold text-cyan-400 tabular-nums">{altitude}<span className="text-sm ml-1 text-white">M</span></div>
+              <div className="text-lg md:text-2xl font-bold text-cyan-400 tabular-nums">{altitude}<span className="text-xs md:text-sm ml-0.5 md:ml-1 text-white">M</span></div>
               <input 
                 type="range" 
                 min="50" max="800" 
                 value={altitude} 
                 onChange={(e) => setAltitude(parseInt(e.target.value))}
-                className="w-32 h-1 bg-gray-600 rounded-lg appearance-none cursor-pointer mt-2 accent-cyan-400"
+                className="w-20 md:w-32 h-1 bg-gray-600 rounded-lg appearance-none cursor-pointer accent-cyan-400"
               />
            </div>
         </div>
@@ -1718,7 +1727,7 @@ const App = () => {
                     <span className="text-green-400">ONLINE</span>
                 </div>
                 <div className="w-10 h-10 rounded-full bg-gray-800 border border-gray-600 flex items-center justify-center overflow-hidden">
-                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="User" className="w-full h-full" />
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Zhihao&topType=ShortHairShortFlat&accessoriesType=Wayfarers" alt="User" className="w-full h-full" />
                 </div>
             </div>
         </header>
